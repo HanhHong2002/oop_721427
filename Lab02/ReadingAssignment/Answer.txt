@@ -1,0 +1,3 @@
+Accessors are also known as getters and mutators are also known as setters. 
+If we have declared the variables as private then they would not be accessible by all so we need to use getter and setter methods.
+Our main purpose is to hide the data of the object as much as we can, so these methods prevent illegal access to these objects.
