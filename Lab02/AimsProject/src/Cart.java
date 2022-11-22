@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.Scanner;
-
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
 
@@ -22,6 +21,31 @@ public class Cart {
             System.out.println(" Đĩa đã được thêm");
         }
     }
+    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+    	int length = dvdList.length;
+    	if (qtyOrdered + length >= MAX_NUMBERS_ORDERED){
+            System.out.println(" Giỏ hàng gần đầy");
+        }else{
+        	for (int i = 0; i <length; i ++) {
+        		
+        	itemsOrdered[this.qtyOrdered] = dvdList[i];
+        	this.qtyOrdered++;
+            }
+        	System.out.println(" Đĩa đã được thêm");
+        }
+    }
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2) {
+    	itemsOrdered[this.qtyOrdered] = dvd1;
+    	itemsOrdered[this.qtyOrdered + 1] = dvd2;
+    	this.qtyOrdered = this.qtyOrdered + 2;
+    	if(qtyOrdered >= MAX_NUMBERS_ORDERED){
+            System.out.println(" Giỏ hàng gần đầy");
+        }else{
+            System.out.println(" Đĩa đã được thêm");
+        }
+    	
+    	
+    }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc dvd){
         int remove = 0;
@@ -37,7 +61,7 @@ public class Cart {
         }
 
     }
-
+  
     public float totalCost(){
         float total = 0;
         for(int i = 0; i < qtyOrdered; i++){
