@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.screen;
 
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.store.Store;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +39,8 @@ public class AddCdToStoreScreenController {
 
     @FXML
     void add(ActionEvent event) {
-    	store.addMedia(new Media(title.getText(), category.getText(), director.getText(), Integer.parseInt(length.getText()), Float.parseFloat(cost.getText()), artists.getText()));
+    	store.addMedia(new CompactDisc(title.getText(), category.getText(), director.getText(), 
+    			Integer.parseInt(length.getText()), Float.parseFloat(cost.getText()), artists.getText()));
     	storeScreen.dispose();
     	StoreScreen storeScreen = new StoreScreen(store, cart);
     }

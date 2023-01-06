@@ -1,14 +1,16 @@
 package hust.soict.dsai.aims.screen;
 
-import java.awt.*;
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.TextField;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
-import javax.swing.*;
 
-import hust.soict.dsai.aims.*;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Media;
@@ -18,9 +20,13 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 
 public class CartScreenController {
 	
@@ -166,7 +172,7 @@ public class CartScreenController {
     			}
     		}
 		});
-    	((TableColumnBase<Media, float>) tfFilter).textProperty().addListener(new ChangeListener<String>() {
+    	tfFilter.textProperty().addListener(new ChangeListener<String>() {
     		@Override
     		public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
     			showFilteredMedia(newValue);
@@ -192,3 +198,19 @@ public class CartScreenController {
     	}
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

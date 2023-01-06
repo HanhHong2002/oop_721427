@@ -1,30 +1,55 @@
 package hust.soict.dsai.aims.media;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Book extends Media {
-	private List<String> authors = new ArrayList<String>();
-	public Book(int id, String category, String title,float cost  , String author) {
-		super(id, category, title, cost);
-		authors.add(author);
+public class Book extends Media{
+	
+	public List<String> getAuthors() {
+		return authors;
 	}
-	public void addAuthor(String authorName) {
-		boolean check = false;
-		for (String string : authors) {
-			if (string.equals(authorName)) {
-				check=true;
-			}
-		}
-		if(check == false) authors.add(authorName);
+
+	public void setAuthors(List<String> authors) {
+		this.authors = authors;
+	}
+
+	public List<String> authors = new ArrayList<String>();
+	
+	public Book(String title, String category, float cost, List<String> authors) {
+		super();
+		this.setId(getCurrentId());
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setCost(cost);
+		this.authors = authors;
+	}
+
+	public Book() {
+		super();
 	}
 	
-	public void removeAuthor(String authorName) {
-		for (int i = 0; i < authors.size(); i++) {
-			if (authors.get(i).equals(authorName)) {
-				authors.remove(i);
-			}
+	public void addAuthor(String author) {
+		if(authors.contains(author)) {
+			System.out.println("The author is already in the AuthorsList");
+		}else {
+			authors.add(author);
 		}
 	}
 	
+	public void removeAuthor(String author) {
+		if(authors.contains(author)) {
+			authors.remove(author);
+		}else {
+			System.out.println("The author is not in the AuthorsList");
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Book [" + this.getTitle() 
+		+ "] - [" + this.getCategory() 
+		+ "] - [" + this.getCost() 
+		+ "$] - ["+ authors + "]";
+	}
 	
 }
